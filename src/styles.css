@@ -1,0 +1,11 @@
+table a {
+  text-align: center;
+}
+
+label {
+  margin: 0 !important;
+}
+.bgSystem {
+  background-color: lightblue!important;
+}
+

@@ -1,0 +1,120 @@
+<div class="row cells3">
+
+  <div class="cell">
+
+    <table [userNums]="userNums" (click)="onUserNums()" class="table cell-hovered border bordered ">
+      <tbody clearDirective>
+      <tr>
+        <td><a href="#">1</a></td>
+        <td><a href="#">2</a></td>
+        <td><a href="#">3</a></td>
+        <td><a href="#">4</a></td>
+        <td><a href="#">5</a></td>
+        <td><a href="#">6</a></td>
+        <td><a href="#">7</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">8</a></td>
+        <td><a href="#">9</a></td>
+        <td><a href="#">10</a></td>
+        <td><a href="#">11</a></td>
+        <td><a href="#">12</a></td>
+        <td><a href="#">13</a></td>
+        <td><a href="#">14</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">15</a></td>
+        <td><a href="#">16</a></td>
+        <td><a href="#">17</a></td>
+        <td><a href="#">18</a></td>
+        <td><a href="#">19</a></td>
+        <td><a href="#">20</a></td>
+        <td><a href="#">21</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">22</a></td>
+        <td><a href="#">23</a></td>
+        <td><a href="#">24</a></td>
+        <td><a href="#">25</a></td>
+        <td><a href="#">26</a></td>
+        <td><a href="#">27</a></td>
+        <td><a href="#">28</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">29</a></td>
+        <td><a href="#">30</a></td>
+        <td><a href="#">31</a></td>
+        <td><a href="#">32</a></td>
+        <td><a href="#">33</a></td>
+        <td><a href="#">34</a></td>
+        <td><a href="#">35</a></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>
+    <br>
+    <p>Брой числа: {{currentCountSelect}} от {{numbersCountToSelect}}</p>
+    <p>Система &#925;{{selectSystem[0]}}</p>
+
+  </div>
+
+  <div class="cell">
+    <div (change)="clear()">
+      <label class="input-control radio small-check">
+        <input type="radio" value="short" name="radiogroup" [checked]="inShortCombining"
+               (change)="isInShortCombining()">
+        <span class="check"></span>
+        <span class="caption">Съкратено комбиниране</span>
+      </label>
+      <label class="input-control radio small-check">
+        <input type="radio" value="full" name="radiogroup" (change)="isInShortCombining()">
+        <span class="check"></span>
+        <span class="caption">Пълно комбиниране</span>
+      </label>
+    </div>
+
+    <p></p>
+
+    <div class="input-control select" style="width: 21.2%">
+      <select [(ngModel)]="selectedYear.value" id="proba">
+        <option value="{{year.value}}" *ngFor="let year of years">{{year.name}}</option>
+      </select>
+    </div>
+    <span>Година</span>
+
+    <p>Съкратена система номер:</p>
+    <div [selectSystem]="selectSystem" (click)="onSystem()">
+      <div class="toolbar" style="margin-bottom: 5px">
+        <button id="s1" class="toolbar-button">1</button>
+        <button class="toolbar-button">2</button>
+        <button class="toolbar-button">3</button>
+        <button class="toolbar-button">4</button>
+        <button class="toolbar-button">5</button>
+        <button class="toolbar-button">6</button>
+      </div>
+      <div class="toolbar">
+        <button class="toolbar-button">7</button>
+        <button class="toolbar-button">8</button>
+        <button class="toolbar-button">9</button>
+        <button class="toolbar-button">10</button>
+        <button class="toolbar-button">11</button>
+        <button class="toolbar-button">12</button>
+      </div>
+    </div>
+    <br>
+    <button (click)="clear()" class="button primary">Изчисти</button>
+    <button (click)="iterate()" class="button success">Търси</button>
+  </div>
+
+  <div class="cell">
+    <p>Troiki: {{three}}</p>
+    <p>Chetvorki: {{four}}</p>
+    <p>Petici: {{five}}</p>
+  </div>
+
+</div>
+
+
+
+
