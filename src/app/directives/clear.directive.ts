@@ -5,7 +5,8 @@ import {Directive, HostBinding, ElementRef, Renderer2} from '@angular/core';
 })
 export class ClearDirective {
 
-  constructor(private elementRef:ElementRef, private renderer:Renderer2) {
+  constructor(private elementRef:ElementRef,
+              private renderer:Renderer2) {
   }
 
   clear() {

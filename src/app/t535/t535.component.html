@@ -1,8 +1,7 @@
 <div class="row cells3">
 
   <div class="cell">
-
-    <table [userNums]="userNums" (click)="onUserNums()" class="table cell-hovered border bordered ">
+    <table [userNums]="userNums" (click)="onUserNums()" class="table border bordered ">
       <tbody clearDirective>
       <tr>
         <td><a href="#">1</a></td>
@@ -54,9 +53,12 @@
 
     <span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>
     <br>
-    <p>Брой числа: {{currentCountSelect}} от {{numbersCountToSelect}}</p>
-    <p>Система &#925;{{selectSystem[0]}}</p>
 
+    <p>Брой числа: {{currentCountSelect}} от {{numbersCountToSelect}}</p>
+    <p>Система &#925;{{selectSystem[0]}} гарантира {{guaranty}} <a href="#" class="mif-info"
+                                                                   onclick="toggleMetroCharm('#guaranty-help')"></a></p>
+    <p>Комбинации: {{combinations}}</p>
+    <p>Цена: {{price}}лв. &nbsp;<span> За година: {{priceForYear}}лв.</span></p>
   </div>
 
   <div class="cell">
@@ -108,10 +110,11 @@
   </div>
 
   <div class="cell">
-    <p>Troiki: {{three}}</p>
-    <p>Chetvorki: {{four}}</p>
-    <p>Petici: {{five}}</p>
+
+    <result  [three]="three" [four]="four" [five]="five" [priceForYear]="priceForYear"></result>
+
   </div>
+
 
 </div>
 

@@ -84,16 +84,45 @@
     {
 
     },
-    "selectNumbers":
+    "options":
     {
-      "1":7,
-      "2":8,
-      "3":9,
-      "4":10,
-      "5":11,
-      "6":4,
-      "7":5
+      "1":{
+        "selectNumbers": 7,
+        "combinations": 9,
+        "guaranty": ["4/4"]
+      },
+      "2":{
+        "selectNumbers": 8,
+        "combinations": 20,
+        "guaranty": ["4/4"]
+      },
+      "3":{
+        "selectNumbers": 9,
+        "combinations": 30,
+        "guaranty": ["4/4"]
+      },
+      "4":{
+        "selectNumbers": 10,
+        "combinations": 51,
+        "guaranty": ["4/4"]
+      },
+      "5":{
+        "selectNumbers": 11,
+        "combinations": 66,
+        "guaranty": ["4/4"]
+      },
+      "6":{
+        "selectNumbers": 6,
+        "combinations": 4,
+        "guaranty": ["3/3", "4/5"]
+      },
+      "7":{
+        "selectNumbers": 7,
+        "combinations": 5,
+        "guaranty": ["3/3", "4/5"]
+      }
     }
+
   },
 
 

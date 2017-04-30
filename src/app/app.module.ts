@@ -8,9 +8,12 @@ import { T535Component }     from './t535/t535.component';
 import { T642Component }     from './t642/t642.component';
 import { T649Component }     from './t649/t649.component';
 import { CombinatoricsFiveService } from "./services/combinatorics-five.service";
-import { UserNumsDirective } from './directives/user-nums.directive';
-import { SelectSystemDirective } from './directives/select-system.directive';
-import { ClearDirective } from './directives/clear.directive';
+import { UserNumsDirective }        from './directives/user-nums.directive';
+import { SelectSystemDirective }    from './directives/select-system.directive';
+import { ClearDirective }           from './directives/clear.directive';
+import { ResultComponent }          from './result/result.component';
+import { InfoComponent }            from './info/info.component';
+import { DefaultPriceService }      from "./services/default-price.service";
 
 @NgModule({
   declarations: [
@@ -20,14 +23,16 @@ import { ClearDirective } from './directives/clear.directive';
     T642Component,
     T649Component,
     SelectSystemDirective,
-    ClearDirective
+    ClearDirective,
+    ResultComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [CombinatoricsFiveService],
+  providers: [CombinatoricsFiveService, DefaultPriceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
