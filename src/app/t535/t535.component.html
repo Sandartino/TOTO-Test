@@ -1,7 +1,14 @@
 <div class="row cells3">
 
   <div class="cell">
-    <table [userNums]="userNums" (click)="onUserNums()" class="table border bordered ">
+    <table [userNums]="userNums"
+           (click)="onUserNums()"
+           [limitNums]="numbersCountToSelect"
+           fullCombining
+           [inFullCombining]="!inShortCombining"
+           (fullCombining)="onFullCombining($event)"
+           [gameNumCount]="gameType"
+           class="table border bordered ">
       <tbody clearDirective>
       <tr>
         <td><a href="#">1</a></td>
@@ -54,23 +61,23 @@
     <span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>
     <br>
 
-    <p>Брой числа: {{currentCountSelect}} от {{numbersCountToSelect}}</p>
-    <p>Система &#925;{{selectSystem[0]}} гарантира {{guaranty}} <a href="#" class="mif-info"
+    <p *ngIf="inShortCombining">Брой числа: {{userNums.length}} от {{numbersCountToSelect}}</p>
+    <p *ngIf="!inShortCombining">Необходими числа: 6+</p>
+    <p *ngIf="inShortCombining">Система &#925;{{selectSystem[0]}} гарантира {{guaranty}} <a href="#" class="mif-info"
                                                                    onclick="toggleMetroCharm('#guaranty-help')"></a></p>
     <p>Комбинации: {{combinations}}</p>
     <p>Цена: {{price}}лв. &nbsp;<span> За година: {{priceForYear}}лв.</span></p>
   </div>
 
   <div class="cell">
-    <div (change)="clear()">
+    <div (change)="clear();isInShortCombining()">
       <label class="input-control radio small-check">
-        <input type="radio" value="short" name="radiogroup" [checked]="inShortCombining"
-               (change)="isInShortCombining()">
+        <input (click)="onShortCombining()" type="radio" value="short" name="radiogroup" [checked]="inShortCombining">
         <span class="check"></span>
         <span class="caption">Съкратено комбиниране</span>
       </label>
-      <label class="input-control radio small-check">
-        <input type="radio" value="full" name="radiogroup" (change)="isInShortCombining()">
+      <label (click)="onShortCombining()" class="input-control radio small-check">
+        <input type="radio" value="full" name="radiogroup">
         <span class="check"></span>
         <span class="caption">Пълно комбиниране</span>
       </label>
@@ -105,8 +112,8 @@
       </div>
     </div>
     <br>
-    <button (click)="clear()" class="button primary">Изчисти</button>
     <button (click)="iterate()" class="button success">Търси</button>
+    <button (click)="clear();clearFullCombining(inShortCombining)" class="button primary">Изчисти</button>
   </div>
 
   <div class="cell">

@@ -14,6 +14,7 @@ import { ClearDirective }           from './directives/clear.directive';
 import { ResultComponent }          from './result/result.component';
 import { InfoComponent }            from './info/info.component';
 import { DefaultPriceService }      from "./services/default-price.service";
+import { FullCombiningDirective } from './directives/full-combining.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DefaultPriceService }      from "./services/default-price.service";
     SelectSystemDirective,
     ClearDirective,
     ResultComponent,
-    InfoComponent
+    InfoComponent,
+    FullCombiningDirective
   ],
   imports: [
     BrowserModule,

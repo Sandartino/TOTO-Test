@@ -1,4 +1,4 @@
-import {Component, ViewChild, Output, EventEmitter, Input} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {IterateShortService} from '../services/iterate-short.service';
 import {IterateFullService}   from '../services/iterate-full.service';
 import {InfoService} from '../services/info.service'
@@ -13,6 +13,7 @@ import {ClearDirective} from "../directives/clear.directive";
   providers: [IterateShortService, IterateFullService, InfoService]
 })
 export class T535Component {
+  gameType = 5;
   userNums = [];
   lastSelectNum;
   drawingNums:Object;
@@ -24,6 +25,7 @@ export class T535Component {
   price:string = '4.50';
   priceForYear:number = 468;
   combinations:number = 9;
+  // combinationsFull:number = 0
   selectedYear:Year = new Year('2014', '2014');
   three:number = 0;
   four:number = 0;
@@ -42,11 +44,6 @@ export class T535Component {
               private http:Http) {
     http.get('./src/app/data/drawing-535.json').subscribe(res => this.drawingNums = res.json());
   }
-
-  ngOnInit() {
-
-  }
-
 
   iterate() {
     if (this.inShortCombining) {
@@ -98,16 +95,26 @@ export class T535Component {
     this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
   }
 
-
-  isInShortCombining():Boolean {
-    this.userNums = [];
-    this.currentCountSelect = 0;
-    return this.inShortCombining = !this.inShortCombining;
+  isInShortCombining() {
+    this.inShortCombining = !this.inShortCombining;
+    if (!this.inShortCombining) {
+      this.price = '0';
+      this.combinations = 0
+    } else {
+      this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
+      this.price = String((this.combinations * 0.50).toFixed(2));
+    }
   }
 
- 
-  averageResult() {
-    
+  onShortCombining() {
+    this.userNums = [];
+    this.currentCountSelect = 0;
+    this.price = String((this.combinations * 0.50).toFixed(2));
+  }
+
+  onFullCombining(value:number) {
+    this.combinations = value;
+    this.price = String(value * 0.50)
   }
 
   clear() {
@@ -117,6 +124,13 @@ export class T535Component {
     this.three = 0;
     this.four = 0;
     this.five = 0;
+  }
+
+  clearFullCombining(inShortCombining:boolean) {
+    if(!inShortCombining){
+      this.combinations = 0;
+      this.price = '0';
+    }
   }
 
 }

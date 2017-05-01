@@ -29,7 +29,8 @@ export class ResultComponent implements OnInit {
   ngDoCheck() {
     this.priceChange(this.newPrice)
   }
-  ngOnChanges(){
+
+  ngOnChanges() {
     this.summation();
     this.subtraction()
   }
@@ -59,14 +60,9 @@ export class ResultComponent implements OnInit {
       (this.four * this.priceFour) +
       (this.five * this.priceFive)
   }
-  subtraction(){
-    return this.result = this.sum - this.priceForYear;
-  }
 
-  see() {
-    console.log(this.priceThree);
-    console.log(this.priceFour);
-    console.log(this.priceFive)
+  subtraction() {
+    return this.result = this.sum - this.priceForYear;
   }
 
 }
