@@ -1,10 +1,10 @@
 <div>
-  <p>Тройки: {{three}}</p>
-  <p>Четворки: {{four}}</p>
-  <p>Петици: {{five}}</p>
+  <p>Тройки: <span class="fontSizeUp"><b>{{three}}</b></span></p>
+  <p>Четворки: <span class="fontSizeUp"><b>{{four}}</b></span></p>
+  <p>Петици: <span class="fontSizeUp"><b>{{five}}</b></span></p>
 
   <label class="input-control checkbox small-check">
-    <input type="checkbox" checked  [(ngModel)]="isVisible">
+    <input type="checkbox" checked [(ngModel)]="isVisible">
     <span class="check"></span>
       <span class="caption">усреднен резултат* &nbsp;
         <a class="mif-cog" href="#" onclick="toggleMetroCharm('#result-help')"></a>
@@ -13,19 +13,18 @@
 
   <div *ngIf="isVisible">
     <p>
-      {{sum}}
+      <b class="fontSizeUp">{{sum}}</b> <span class="text-secondary">спечелени</span>
     </p>
     <p>
       &#8211;
     </p>
     <p>
-      {{priceForYear}}
+      <b class="fontSizeUp">{{priceForYear}}</b> <span class="text-secondary">платени</span>
     </p>
+    <hr class="equalLine">
     <p>
-      &#8212;&#8212;&#8212;
-    </p>
-    <p>
-      {{result}}
+      <span style="font-size: x-large"><b
+        [ngClass]="{'green':positiveResult,'red':negativeResult,'inherit':zeroResult}">{{result}}лв.</b></span>
     </p>
   </div>
 </div>

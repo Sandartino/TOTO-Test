@@ -7,18 +7,18 @@ export class SelectSystemDirective {
   clickElements = [];
   firstSystemElement:ElementRef;
   defaultColor:string = '#fff';
-  clickColor:string = 'lightblue';
+  clickColor:string = '#B2E673';
 
   @Input() selectSystem:string[] = [];
 
   constructor(private elementRef:ElementRef, private renderer:Renderer2) {
-
   }
 
   ngAfterViewInit() {
     this.firstSystemElement = this.elementRef.nativeElement.querySelector('#s1');
     this.renderer.setStyle(this.firstSystemElement, 'backgroundColor', this.clickColor);
   }
+
 
   @HostListener('click', ['$event.target']) selectSystems(element) {
     if (element.localName !== 'div') {

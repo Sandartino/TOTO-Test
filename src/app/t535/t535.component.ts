@@ -25,7 +25,6 @@ export class T535Component {
   price:string = '4.50';
   priceForYear:number = 468;
   combinations:number = 9;
-  // combinationsFull:number = 0
   selectedYear:Year = new Year('2014', '2014');
   three:number = 0;
   four:number = 0;
@@ -47,6 +46,10 @@ export class T535Component {
 
   iterate() {
     if (this.inShortCombining) {
+      if(this.currentCountSelect < this.numbersCountToSelect){
+        alert ('Избрали сте по-малко числа');
+        return;
+      }
       this.iterateShortService.iterate(
         "535",
         this.userNums.sort(this.sortNumbers),
@@ -57,6 +60,10 @@ export class T535Component {
       this.four = this.iterateShortService.four;
       this.five = this.iterateShortService.five;
     } else {
+      if(this.currentCountSelect < this.gameType){
+        alert ('Избрали сте по-малко числа');
+        return;
+      }
       this.iterateFullService.iterate(5, this.userNums, this.drawingNums, this.selectedYear.value);
       this.three = this.iterateFullService.three;
       this.four = this.iterateFullService.four;
@@ -97,12 +104,14 @@ export class T535Component {
 
   isInShortCombining() {
     this.inShortCombining = !this.inShortCombining;
-    if (!this.inShortCombining) {
-      this.price = '0';
-      this.combinations = 0
-    } else {
+    if (this.inShortCombining) {
       this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
       this.price = String((this.combinations * 0.50).toFixed(2));
+      this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
+    } else {
+      this.price = '0';
+      this.combinations = 0;
+      this.priceForYear = 0;
     }
   }
 
@@ -114,7 +123,8 @@ export class T535Component {
 
   onFullCombining(value:number) {
     this.combinations = value;
-    this.price = String(value * 0.50)
+    this.price = String(value * 0.50);
+    this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
   }
 
   clear() {
@@ -127,9 +137,10 @@ export class T535Component {
   }
 
   clearFullCombining(inShortCombining:boolean) {
-    if(!inShortCombining){
+    if (!inShortCombining) {
       this.combinations = 0;
       this.price = '0';
+      this.priceForYear = 0;
     }
   }
 

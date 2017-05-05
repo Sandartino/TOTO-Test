@@ -1,3 +1,14 @@
+/*main color scheme #FFFCCA*/
+/*style="border-right: 1px solid #A89E00"*/
+body {
+  background-color: #1D1D1D;
+  color: #333000;
+}
+
+table tr td {
+  padding: 0 !important;
+}
+
 table a {
   text-align: center;
 }
@@ -6,7 +17,73 @@ label {
   margin: 0 !important;
 }
 
-.bgSystem {
-  background-color: lightblue!important;
+/*Overwrite Framework*/
+/*tabs*/
+.tabcontrol .tabs li.active a {
+  background-color: #A89E00;
 }
+
+.tabcontrol .tabs {
+  border-bottom: 0;
+  background-color: #DBD790;
+}
+
+.tabcontrol .tabs li {
+  /*background-color: #FFF7C9;*/
+}
+
+/*end tabs*/
+.frames{
+  border: 1px solid #A89E00;
+}
+.frame {
+  background-color: #FFFCCA !important;
+}
+
+.toolbar .toolbar-button {
+  background-color: #FFFFF8;
+}
+
+.toolbar .toolbar-button:disabled {
+  background-color: #DDDDD7 !important;
+}
+
+.button.success {
+  background: #449922;
+  border-color: #449922
+}
+
+.button.primary {
+  background: #2498d9;
+  border-color: #2498d9;
+}
+
+/*End Overwrite*/
+
+table td a {
+  background-color: #FFFFF8;
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #222299 !important;
+  /*color: #222299 !important;*/
+}
+
+.system .toolbar button {
+  margin-bottom: 5px;
+}
+
+.fontSizeUp {
+  font-size: 110%;
+  color: #4E487F !important;
+}
+
+.equalLine {
+  width: 100px;
+  margin-left: 0;
+  background-color: #2B2B2B;
+  /*background-color: #4E487F;*/
+}
+
+
 

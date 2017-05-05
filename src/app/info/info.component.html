@@ -4,45 +4,78 @@
     g = гарантирана печалба <br>
     p = познати числа <br><br>
     4/5
-    гарантирано ще имате четворка/и <br>
-    ако уцелите пет числа
+    гарантирано ще имате четворка <br>
+    ако познаете пет числа
   </p>
   <span class="charm-closer"></span>
 </div>
 
 <div data-role="charm" data-position="left" id="result-help">
 
-  <p class="text-light">
-    Липсват данни за размера на печалбите през<br>
-    годините.За това условно ще приемем, че <br>
-    левовата стойност на печалбите е: <br><br>
-    тройка =
-    <button (click)="minus($event.target)" data-price="3" class="button mini-button bg-grayLight">
-      -
-    </button>
-    {{priceThree}}
-    <button (click)="plus($event.target)" data-price="3" class="button mini-button bg-grayLight">
-      +
-    </button>
-    <br>
-    четворка =
-    <button (click)="minus($event.target)" data-price="4" class="button mini-button bg-grayLight">
-      -
-    </button>
-    {{priceFour}}
-    <button (click)="plus($event.target)" data-price="4" class="button mini-button bg-grayLight">
-      +
-    </button>
-    <br>
-    петица =
-    <button (click)="minus($event.target)" data-price="5" class="button mini-button bg-grayLight">
-      -
-    </button>
-    {{priceFive}}
-    <button (click)="plus($event.target)" data-price="5" class="button mini-button bg-grayLight">
-      +
-    </button>
+  <p class="text-light" style="padding-top: 10px">
+    Липсват данни за размера на печалбите<br>
+    през годините.Условно приемаме, че<br>
+    левовата равностойност на печалбите е: <br><br>
   </p>
   <span class="charm-closer"></span>
 
+  <table class="table" style="max-width: 64%">
+    <tr>
+      <td>тройка</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="3">-</button>
+      </td>
+      <td class="align-center">{{priceThree}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="3">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td>четворка</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="4">-</button>
+      </td>
+      <td class="align-center">{{priceFour}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="4">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td>петица</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="5">-</button>
+      </td>
+      <td>{{priceFive}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="5">+</button>
+      </td>
+    </tr>
+  </table>
+
+
 </div>
+
+
+<!--тройка =-->
+<!--<button (click)="minus($event.target)" data-price="3"-->
+<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
+<!--&nbsp;{{priceThree}}&nbsp;-->
+<!--<button (click)="plus($event.target)" data-price="3"-->
+<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->
+<!--<br>-->
+<!--четворка =-->
+<!--<button (click)="minus($event.target)" data-price="4"-->
+<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
+<!--&nbsp;{{priceFour}}&nbsp;-->
+<!--<button (click)="plus($event.target)" data-price="4"-->
+<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->
+<!--<br>-->
+<!--петица =-->
+<!--<button (click)="minus($event.target)" data-price="5"-->
+<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
+<!--&nbsp;{{priceFive}}&nbsp;-->
+<!--<button (click)="plus($event.target)" data-price="5"-->
+<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->

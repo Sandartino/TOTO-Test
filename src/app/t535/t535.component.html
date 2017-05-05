@@ -57,16 +57,21 @@
       </tr>
       </tbody>
     </table>
-
-    <span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>
-    <br>
-
-    <p *ngIf="inShortCombining">Брой числа: {{userNums.length}} от {{numbersCountToSelect}}</p>
-    <p *ngIf="!inShortCombining">Необходими числа: 6+</p>
-    <p *ngIf="inShortCombining">Система &#925;{{selectSystem[0]}} гарантира {{guaranty}} <a href="#" class="mif-info"
-                                                                   onclick="toggleMetroCharm('#guaranty-help')"></a></p>
-    <p>Комбинации: {{combinations}}</p>
-    <p>Цена: {{price}}лв. &nbsp;<span> За година: {{priceForYear}}лв.</span></p>
+    <!--show selected numbers-->
+    <!--<p>-->
+    <!--<span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>-->
+    <!--</p>-->
+    <p *ngIf="inShortCombining">Система &#8470; <b class="fontSizeUp">{{selectSystem[0]}}</b> &nbsp; Числа: <b
+      class="fontSizeUp">{{userNums.length}}</b> от <b class="fontSizeUp">{{numbersCountToSelect}}</b></p>
+    <p *ngIf="!inShortCombining">Брой числа: <b class="fontSizeUp">{{currentCountSelect}}</b> &nbsp; Необходими:
+      <b class="fontSizeUp">6+</b></p>
+    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b> <a href="#" class="mif-info padding5"
+                                                                                    style="margin-bottom:4px"
+                                                                                    onclick="toggleMetroCharm('#guaranty-help')"></a>
+    </p>
+    <p>Комбинации: <b class="fontSizeUp">{{combinations}}</b></p>
+    <p>Цена: <span class="fontSizeUp">{{price}}</span>лв. &nbsp; За година: <span
+      class="fontSizeUp">{{priceForYear}}</span>лв.</p>
   </div>
 
   <div class="cell">
@@ -85,7 +90,7 @@
 
     <p></p>
 
-    <div class="input-control select" style="width: 21.2%">
+    <div class="input-control select" style="width: 21.4%">
       <select [(ngModel)]="selectedYear.value" id="proba">
         <option value="{{year.value}}" *ngFor="let year of years">{{year.name}}</option>
       </select>
@@ -93,22 +98,33 @@
     <span>Година</span>
 
     <p>Съкратена система номер:</p>
-    <div [selectSystem]="selectSystem" (click)="onSystem()">
-      <div class="toolbar" style="margin-bottom: 5px">
-        <button id="s1" class="toolbar-button">1</button>
-        <button class="toolbar-button">2</button>
-        <button class="toolbar-button">3</button>
-        <button class="toolbar-button">4</button>
-        <button class="toolbar-button">5</button>
-        <button class="toolbar-button">6</button>
+    <div [selectSystem]="selectSystem" (click)="onSystem()" class="system">
+      <div class="toolbar">
+        <button id="s1" class="toolbar-button" [disabled]="!inShortCombining">1</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">2</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">3</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">4</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">5</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">6</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">7</button>
       </div>
       <div class="toolbar">
-        <button class="toolbar-button">7</button>
-        <button class="toolbar-button">8</button>
-        <button class="toolbar-button">9</button>
-        <button class="toolbar-button">10</button>
-        <button class="toolbar-button">11</button>
-        <button class="toolbar-button">12</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">8</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">9</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">10</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">11</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">12</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">13</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">14</button>
+      </div>
+      <div class="toolbar">
+        <button class="toolbar-button" [disabled]="!inShortCombining">15</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">16</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">17</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">18</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">19</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">20</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">21</button>
       </div>
     </div>
     <br>
@@ -118,7 +134,7 @@
 
   <div class="cell">
 
-    <result  [three]="three" [four]="four" [five]="five" [priceForYear]="priceForYear"></result>
+    <result [three]="three" [four]="four" [five]="five" [priceForYear]="priceForYear"></result>
 
   </div>
 

@@ -12,7 +12,7 @@ export class ClearDirective {
   clear() {
     var elements = this.elementRef.nativeElement.querySelectorAll('a');
     for (var value of elements) {
-      this.renderer.setStyle(value, 'backgroundColor', 'inherit')
+      this.renderer.setStyle(value, 'backgroundColor', '#FFFFF8')
     }
   }
 

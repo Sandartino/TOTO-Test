@@ -14,6 +14,9 @@ export class ResultComponent implements OnInit {
   newPrice:Object;
   sum:number = 0;
   result:number = 0;
+  positiveResult:boolean = false;
+  negativeResult:boolean = false;
+  zeroResult:boolean = false;
   @Input() priceForYear:number;
   @Input() three:number;
   @Input() four:number;
@@ -23,7 +26,7 @@ export class ResultComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.defaultPriceService.send.subscribe(data => this.newPrice = data);
+    this.defaultPriceService.price.subscribe(data => this.newPrice = data);
   }
 
   ngDoCheck() {
@@ -32,7 +35,7 @@ export class ResultComponent implements OnInit {
 
   ngOnChanges() {
     this.summation();
-    this.subtraction()
+    this.subtraction();
   }
 
   priceChange(data:Object) {
@@ -62,7 +65,18 @@ export class ResultComponent implements OnInit {
   }
 
   subtraction() {
-    return this.result = this.sum - this.priceForYear;
+    this.result = this.sum - this.priceForYear;
+    if (this.result === 0) {
+      this.zeroResult = true;
+    } else if (this.result > 0) {
+      this.positiveResult = true;
+      this.negativeResult = false;
+      this.zeroResult = false
+    } else if (this.result < 0) {
+      this.negativeResult = true;
+      this.positiveResult = false;
+      this.zeroResult = false
+    }
   }
 
 }
