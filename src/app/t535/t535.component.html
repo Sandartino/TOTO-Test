@@ -65,13 +65,14 @@
       class="fontSizeUp">{{userNums.length}}</b> от <b class="fontSizeUp">{{numbersCountToSelect}}</b></p>
     <p *ngIf="!inShortCombining">Брой числа: <b class="fontSizeUp">{{currentCountSelect}}</b> &nbsp; Необходими:
       <b class="fontSizeUp">6+</b></p>
-    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b> <a href="#" class="mif-info padding5"
-                                                                                    style="margin-bottom:4px"
+    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b> <a href="#"
+                                                                                    class="mif-question padding5"
+                                                                                    style="margin-bottom:4px;color: #2498d9"
                                                                                     onclick="toggleMetroCharm('#guaranty-help')"></a>
     </p>
     <p>Комбинации: <b class="fontSizeUp">{{combinations}}</b></p>
-    <p>Цена: <span class="fontSizeUp">{{price}}</span>лв. &nbsp; За година: <span
-      class="fontSizeUp">{{priceForYear}}</span>лв.</p>
+    <p>Цена: <b class="fontSizeUp">{{price}}лв.</b>
+      <!--&nbsp; За година: <span class="fontSizeUp">{{priceForYear}}</span>лв.</p>-->
   </div>
 
   <div class="cell">
@@ -88,11 +89,9 @@
       </label>
     </div>
 
-    <p></p>
-
-    <div class="input-control select" style="width: 21.4%">
-      <select [(ngModel)]="selectedYear.value" id="proba">
-        <option value="{{year.value}}" *ngFor="let year of years">{{year.name}}</option>
+    <div class="input-control select" style="width: 24%">
+      <select [(ngModel)]="selectedYear">
+        <option value="{{year}}" *ngFor="let year of years">{{year}}</option>
       </select>
     </div>
     <span>Година</span>
@@ -117,27 +116,17 @@
         <button class="toolbar-button" [disabled]="!inShortCombining">13</button>
         <button class="toolbar-button" [disabled]="!inShortCombining">14</button>
       </div>
-      <div class="toolbar">
-        <button class="toolbar-button" [disabled]="!inShortCombining">15</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">16</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">17</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">18</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">19</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">20</button>
-        <button class="toolbar-button" [disabled]="!inShortCombining">21</button>
-      </div>
     </div>
     <br>
     <button (click)="iterate()" class="button success">Търси</button>
     <button (click)="clear();clearFullCombining(inShortCombining)" class="button primary">Изчисти</button>
   </div>
 
-  <div class="cell">
+  <div class="cell" style="margin-top: -5px">
 
-    <result [three]="three" [four]="four" [five]="five" [priceForYear]="priceForYear"></result>
+    <result [three]="three" [four]="four" [five]="five" [gameType]="gameType" [priceForYear]="priceForYear"></result>
 
   </div>
-
 
 </div>
 

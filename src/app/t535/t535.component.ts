@@ -3,7 +3,6 @@ import {IterateShortService} from '../services/iterate-short.service';
 import {IterateFullService}   from '../services/iterate-full.service';
 import {InfoService} from '../services/info.service'
 import {Http} from '@angular/http';
-import {Year} from '../classes/year';
 import {ClearDirective} from "../directives/clear.directive";
 
 @Component({
@@ -25,15 +24,11 @@ export class T535Component {
   price:string = '4.50';
   priceForYear:number = 468;
   combinations:number = 9;
-  selectedYear:Year = new Year('2014', '2014');
+  selectedYear:string = '2016';
+  years = ['2016','2015','2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;
-  years = [
-    new Year('2014', '2014'),
-    new Year('2015', '2015'),
-    new Year('2016', '2016')
-  ];
 
   @ViewChild(ClearDirective) clearDirective:ClearDirective;
 
@@ -54,7 +49,7 @@ export class T535Component {
         "535",
         this.userNums.sort(this.sortNumbers),
         this.selectSystem[0],
-        this.drawingNums[this.selectedYear.value]
+        this.drawingNums[this.selectedYear]
       );
       this.three = this.iterateShortService.three;
       this.four = this.iterateShortService.four;
@@ -64,7 +59,7 @@ export class T535Component {
         alert ('Избрали сте по-малко числа');
         return;
       }
-      this.iterateFullService.iterate(5, this.userNums, this.drawingNums, this.selectedYear.value);
+      this.iterateFullService.iterate(5, this.userNums, this.drawingNums, this.selectedYear);
       this.three = this.iterateFullService.three;
       this.four = this.iterateFullService.four;
       this.five = this.iterateFullService.five;
@@ -99,7 +94,7 @@ export class T535Component {
     this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
     this.guaranty = this.infoService.guaranty('535', this.selectSystem[0], 'guaranty');
     this.price = String((this.combinations * 0.50).toFixed(2));
-    this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
+    this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
   }
 
   isInShortCombining() {
@@ -107,7 +102,7 @@ export class T535Component {
     if (this.inShortCombining) {
       this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
       this.price = String((this.combinations * 0.50).toFixed(2));
-      this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
+      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
     } else {
       this.price = '0';
       this.combinations = 0;
@@ -124,7 +119,7 @@ export class T535Component {
   onFullCombining(value:number) {
     this.combinations = value;
     this.price = String(value * 0.50);
-    this.priceForYear = this.infoService.forYear(this.selectedYear.value, this.combinations * 0.50)
+    this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
   }
 
   clear() {

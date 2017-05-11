@@ -1,1 +1,161 @@
-<button (click)="see()">See</button>
+<div class="row cells3">
+
+  <div class="cell">
+    <table [userNums]="userNums"
+           (click)="onUserNums()"
+           [limitNums]="numbersCountToSelect"
+           fullCombining
+           [inFullCombining]="!inShortCombining"
+           (fullCombining)="onFullCombining($event)"
+           [gameNumCount]="gameType"
+           class="table border bordered ">
+      <tbody clearDirective>
+      <tr>
+        <td><a href="#">1</a></td>
+        <td><a href="#">2</a></td>
+        <td><a href="#">3</a></td>
+        <td><a href="#">4</a></td>
+        <td><a href="#">5</a></td>
+        <td><a href="#">6</a></td>
+        <td><a href="#">7</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">8</a></td>
+        <td><a href="#">9</a></td>
+        <td><a href="#">10</a></td>
+        <td><a href="#">11</a></td>
+        <td><a href="#">12</a></td>
+        <td><a href="#">13</a></td>
+        <td><a href="#">14</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">15</a></td>
+        <td><a href="#">16</a></td>
+        <td><a href="#">17</a></td>
+        <td><a href="#">18</a></td>
+        <td><a href="#">19</a></td>
+        <td><a href="#">20</a></td>
+        <td><a href="#">21</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">22</a></td>
+        <td><a href="#">23</a></td>
+        <td><a href="#">24</a></td>
+        <td><a href="#">25</a></td>
+        <td><a href="#">26</a></td>
+        <td><a href="#">27</a></td>
+        <td><a href="#">28</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">29</a></td>
+        <td><a href="#">30</a></td>
+        <td><a href="#">31</a></td>
+        <td><a href="#">32</a></td>
+        <td><a href="#">33</a></td>
+        <td><a href="#">34</a></td>
+        <td><a href="#">35</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">36</a></td>
+        <td><a href="#">37</a></td>
+        <td><a href="#">38</a></td>
+        <td><a href="#">39</a></td>
+        <td><a href="#">40</a></td>
+        <td><a href="#">41</a></td>
+        <td><a href="#">42</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">43</a></td>
+        <td><a href="#">44</a></td>
+        <td><a href="#">45</a></td>
+        <td><a href="#">46</a></td>
+        <td><a href="#">47</a></td>
+        <td><a href="#">48</a></td>
+        <td><a href="#">49</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <!--show selected numbers-->
+    <!--<p>-->
+    <!--<span *ngFor="let userNum of userNums"><b>{{userNum}},</b> </span>-->
+    <!--</p>-->
+    <p *ngIf="inShortCombining">Система &#8470; <b class="fontSizeUp">{{selectSystem[0]}}</b> &nbsp; Числа: <b
+      class="fontSizeUp">{{userNums.length}}</b> от <b class="fontSizeUp">{{numbersCountToSelect}}</b></p>
+    <p *ngIf="!inShortCombining">Брой числа: <b class="fontSizeUp">{{currentCountSelect}}</b> &nbsp; Необходими:
+      <b class="fontSizeUp">7+</b></p>
+    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b> <a href="#" class="mif-info padding5"
+                                                                                    style="margin-bottom:4px"
+                                                                                    onclick="toggleMetroCharm('#guaranty-help')"></a>
+    </p>
+    <p>Комбинации: <b class="fontSizeUp">{{combinations}}</b></p>
+    <p>Цена: <b class="fontSizeUp">{{price}}лв.</b>
+      <!--&nbsp; За година: <span class="fontSizeUp">{{priceForYear}}</span>лв.</p>-->
+  </div>
+
+  <div class="cell">
+    <div (change)="clear();isInShortCombining()">
+      <label class="input-control radio small-check">
+        <input (click)="onShortCombining()" type="radio" value="short" name="radiogroup2" [checked]="inShortCombining">
+        <span class="check"></span>
+        <span class="caption">Съкратено комбиниране</span>
+      </label>
+      <label (click)="onShortCombining()" class="input-control radio small-check">
+        <input type="radio" value="full" name="radiogroup2">
+        <span class="check"></span>
+        <span class="caption">Пълно комбиниране</span>
+      </label>
+    </div>
+
+    <div class="input-control select" style="width: 24%">
+      <select [(ngModel)]="selectedYear">
+        <option value="{{year}}" *ngFor="let year of years">{{year}}</option>
+      </select>
+    </div>
+    <span>Година</span>
+
+    <p>Съкратена система номер:</p>
+    <div [selectSystem]="selectSystem" (click)="onSystem()" class="system">
+      <div class="toolbar">
+        <button id="s1" class="toolbar-button" [disabled]="!inShortCombining">1</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">2</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">3</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">4</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">5</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">6</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">7</button>
+      </div>
+      <div class="toolbar">
+        <button class="toolbar-button" [disabled]="!inShortCombining">8</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">9</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">10</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">11</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">12</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">13</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">14</button>
+      </div>
+      <div class="toolbar">
+        <button class="toolbar-button" [disabled]="!inShortCombining">15</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">16</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">17</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">18</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">19</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">20</button>
+        <button class="toolbar-button" [disabled]="!inShortCombining">21</button>
+      </div>
+    </div>
+    <br>
+    <button (click)="iterate()" class="button success">Търси</button>
+    <button (click)="clear();clearFullCombining(inShortCombining)" class="button primary">Изчисти</button>
+  </div>
+
+  <div class="cell" style="margin-top: -5px">
+
+    <result [three]="three" [four]="four" [five]="five" [six]="six" [gameType]="gameType" [priceForYear]="priceForYear"></result>
+
+  </div>
+
+</div>
+
+
+
+

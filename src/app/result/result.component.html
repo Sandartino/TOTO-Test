@@ -1,17 +1,19 @@
 <div>
-  <p>Тройки: <span class="fontSizeUp"><b>{{three}}</b></span></p>
-  <p>Четворки: <span class="fontSizeUp"><b>{{four}}</b></span></p>
-  <p>Петици: <span class="fontSizeUp"><b>{{five}}</b></span></p>
+  <p>Тройки: <b class="fontSizeUp">{{three}}</b></p>
+  <p>Четворки: <b class="fontSizeUp">{{four}}</b></p>
+  <p>Петици: <b class="fontSizeUp">{{five}}</b></p>
+  <p *ngIf="gameType==6">Шестици: <b class="fontSizeUp">{{six}}</b></p>
+  <br>
 
-  <label class="input-control checkbox small-check">
-    <input type="checkbox" checked [(ngModel)]="isVisible">
+  <label class="switch">
+    <input type="checkbox" [(ngModel)]="isVisible">
     <span class="check"></span>
-      <span class="caption">усреднен резултат* &nbsp;
-        <a class="mif-cog" href="#" onclick="toggleMetroCharm('#result-help')"></a>
-      </span>
   </label>
+  <span class="caption">&nbsp;суми за година* &nbsp;
+        <a href="#" class="mif-cog" style="color: #2498d9" onclick="toggleMetroCharm('#result-help')"></a>
+  </span>
 
-  <div *ngIf="isVisible">
+  <div *ngIf="isVisible" style="padding-top: 10px">
     <p>
       <b class="fontSizeUp">{{sum}}</b> <span class="text-secondary">спечелени</span>
     </p>

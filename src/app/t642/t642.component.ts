@@ -1,58 +1,71 @@
-import {Component        } from '@angular/core';
-import {UserNumsDirective} from './../directives/user-nums.directive';
-import {IterateShortService}    from "../services/iterate-short.service";
-import {Http}              from '@angular/http';
-import {Year}              from "../classes/year";
+import {Component, ViewChild} from '@angular/core';
+import {Http}                 from '@angular/http';
+import {IterateShortService}  from "../services/iterate-short.service";
+import {IterateFullService}   from "../services/iterate-full.service";
+import {InfoService}          from "../services/info.service";
+import {ClearDirective}       from "../directives/clear.directive";
 
 @Component({
   selector: 't-t642',
   templateUrl: './t642.component.html',
   styleUrls: ['./t642.component.css'],
-  providers: [IterateShortService]
+  providers: [IterateShortService, IterateFullService, InfoService]
 })
 export class T642Component {
-  /*userNums = [];
+  gameType = 6;
+  userNums = [];
   lastSelectNum;
   drawingNums:Object;
-  numbersCountToSelect:number = 7;
+  numbersCountToSelect:number = 8;
   currentCountSelect:number = 0;
   inShortCombining:boolean = true;
   selectSystem:string[] = ['1'];
-  selectedYear:Year = new Year('2014', '2014');
+  guaranty:string = '3/3';
+  price:string = '2.40';
+  priceForYear:number = 250;
+  combinations:number = 4;
+  selectedYear = '2016';
+  years = ['2016','2015','2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;
-  years = [
-    new Year('2014', '2014'),
-    new Year('2015', '2015'),
-    new Year('2016', '2016')
-  ];
+  six:number = 0;
 
   @ViewChild(ClearDirective) clearDirective:ClearDirective;
 
   constructor(private iterateShortService:IterateShortService,
               private iterateFullService:IterateFullService,
+              private infoService:InfoService,
               private http:Http) {
-    http.get('./src/app/data/drawing-535.json').subscribe(res => this.drawingNums = res.json());
+    http.get('./src/app/data/drawing-642.json').subscribe(res => this.drawingNums = res.json());
   }
-
 
   iterate() {
     if (this.inShortCombining) {
+      if (this.currentCountSelect < this.numbersCountToSelect) {
+        alert('Избрали сте по-малко числа');
+        return;
+      }
       this.iterateShortService.iterate(
-        "535",
+        "642/9",
         this.userNums.sort(this.sortNumbers),
         this.selectSystem[0],
-        this.drawingNums[this.selectedYear.value]
+        this.drawingNums[this.selectedYear]
       );
       this.three = this.iterateShortService.three;
       this.four = this.iterateShortService.four;
       this.five = this.iterateShortService.five;
+      this.six = this.iterateShortService.six;
     } else {
-      this.iterateFullService.iterate(5, this.userNums, this.drawingNums, this.selectedYear.value);
+      if (this.currentCountSelect < this.gameType) {
+        alert('Избрали сте по-малко числа');
+        return;
+      }
+      this.iterateFullService.iterate(6, this.userNums, this.drawingNums, this.selectedYear);
       this.three = this.iterateFullService.three;
       this.four = this.iterateFullService.four;
       this.five = this.iterateFullService.five;
+      this.six = this.iterateFullService.six;
       this.iterateFullService.reset()
     }
 
@@ -79,19 +92,38 @@ export class T642Component {
     }
   }
 
-
   onSystem() {
-    this.numbersCountToSelect = this.iterateShortService.systemData['535']['options'][this.selectSystem[0]]['selectNumbers'];
-    // this.numbersCountToSelect = 0;
+    this.numbersCountToSelect = this.infoService.get('642/9', this.selectSystem[0], 'selectNumbers');
+    this.combinations = this.infoService.get('642/9', this.selectSystem[0], 'combinations');
+    this.guaranty = this.infoService.guaranty('642/9', this.selectSystem[0], 'guaranty');
+    this.price = String((this.combinations * 0.60).toFixed(2));
+    this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.60)
   }
 
+  isInShortCombining() {
+    this.inShortCombining = !this.inShortCombining;
+    if (this.inShortCombining) {
+      this.combinations = this.infoService.get('642/9', this.selectSystem[0], 'combinations');
+      this.price = String((this.combinations * 0.60).toFixed(2));
+      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.60)
+    } else {
+      this.price = '0';
+      this.combinations = 0;
+      this.priceForYear = 0;
+    }
+  }
 
-  isInShortCombining():Boolean {
+  onShortCombining() {
     this.userNums = [];
     this.currentCountSelect = 0;
-    return this.inShortCombining = !this.inShortCombining;
+    this.price = String((this.combinations * 0.60).toFixed(2));
   }
 
+  onFullCombining(value:number) {
+    this.combinations = value;
+    this.price = String((value * 0.60).toFixed(2));
+    this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.60)
+  }
 
   clear() {
     this.clearDirective.clear();
@@ -100,6 +132,15 @@ export class T642Component {
     this.three = 0;
     this.four = 0;
     this.five = 0;
-  }*/
+    this.six = 0;
+  }
+
+  clearFullCombining(inShortCombining:boolean) {
+    if (!inShortCombining) {
+      this.combinations = 0;
+      this.price = '0';
+      this.priceForYear = 0;
+    }
+  }
 
 }

@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {CombinatoricsFiveService} from "./combinatorics-five.service";
+import {CombinatoricsSixService} from "./combinatorics-six.service";
 
 @Injectable()
 export class IterateFullService {
@@ -8,13 +9,13 @@ export class IterateFullService {
   five:number = 0;
   six:number = 0;
 
-  constructor(private combinatoricsFiveService:CombinatoricsFiveService) {
+  constructor(private combinatoricsFiveService:CombinatoricsFiveService,
+              private combinatoricsSixService:CombinatoricsSixService) {
   }
 
   iterate(gameType:number, userNums, drawingNums:Object, year) {
     drawingNums = drawingNums[year];
     var drawingNumsLength = gameType;
-    var combination;
     var three = 0;
     var four = 0;
     var five = 0;
@@ -23,7 +24,6 @@ export class IterateFullService {
     var currentFour = 0;
     var currentFive = 0;
     var currentSix = 0;
-
 
     for (var p in drawingNums) {
       if (drawingNums.hasOwnProperty(p)) {
@@ -80,19 +80,35 @@ export class IterateFullService {
         this.three = this.combinatoricsFiveService.three(three, userNums.length)
       }
       if (four > 0) {
-        this.three = this.combinatoricsFiveService.four(four, userNums.length).three;
+        this.three += this.combinatoricsFiveService.four(four, userNums.length).three;
         this.four = this.combinatoricsFiveService.four(four, userNums.length).four
       }
       if (five > 0) {
-        this.three = this.combinatoricsFiveService.five(five, userNums.length).three;
-        this.four = this.combinatoricsFiveService.five(five, userNums.length).four;
+        this.three += this.combinatoricsFiveService.five(five, userNums.length).three;
+        this.four += this.combinatoricsFiveService.five(five, userNums.length).four;
         this.five = this.combinatoricsFiveService.five(five, userNums.length).five
       }
     } else if (gameType === 6) {
-
-
+      if (three > 0) {
+        this.three = this.combinatoricsSixService.three(three, userNums.length)
+      }
+      if (four > 0) {
+        this.three += this.combinatoricsSixService.four(four, userNums.length).three;
+        this.four = this.combinatoricsSixService.four(four, userNums.length).four
+      }
+      if (five > 0) {
+        this.three += this.combinatoricsSixService.five(five, userNums.length).three;
+        this.four += this.combinatoricsSixService.five(five, userNums.length).four;
+        this.five = this.combinatoricsSixService.five(five, userNums.length).five
+      }
+      if (six > 0) {
+        this.three += this.combinatoricsSixService.six(six, userNums.length).three;
+        this.four += this.combinatoricsSixService.six(six, userNums.length).four;
+        this.five += this.combinatoricsSixService.six(six, userNums.length).five;
+        this.six = this.combinatoricsSixService.six(six, userNums.length).six;
+      }
     }
-    
+
 // end iterate()
   }
 

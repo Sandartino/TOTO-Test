@@ -15,67 +15,113 @@
   <p class="text-light" style="padding-top: 10px">
     Липсват данни за размера на печалбите<br>
     през годините.Условно приемаме, че<br>
-    левовата равностойност на печалбите е: <br><br>
+    левовата им равностойност е: <br><br>
   </p>
   <span class="charm-closer"></span>
-
+  5/35
   <table class="table" style="max-width: 64%">
     <tr>
       <td>тройка</td>
       <td>=&nbsp;</td>
       <td>
-        <button (click)="minus($event.target)" data-price="3">-</button>
+        <button (click)="minus($event.target)" data-price="3.5">-</button>
       </td>
-      <td class="align-center">{{priceThree}}</td>
+      <td class="align-center">{{priceThree_5}}</td>
       <td>
-        <button (click)="plus($event.target)" data-price="3">+</button>
+        <button (click)="plus($event.target)" data-price="3.5">+</button>
       </td>
     </tr>
     <tr>
       <td>четворка</td>
       <td>=&nbsp;</td>
       <td>
-        <button (click)="minus($event.target)" data-price="4">-</button>
+        <button (click)="minus($event.target)" data-price="4.5">-</button>
       </td>
-      <td class="align-center">{{priceFour}}</td>
+      <td class="align-center">{{priceFour_5}}</td>
       <td>
-        <button (click)="plus($event.target)" data-price="4">+</button>
+        <button (click)="plus($event.target)" data-price="4.5">+</button>
       </td>
     </tr>
     <tr>
       <td>петица</td>
       <td>=&nbsp;</td>
       <td>
-        <button (click)="minus($event.target)" data-price="5">-</button>
+        <button (click)="minus($event.target)" data-price="5.5">-</button>
       </td>
-      <td>{{priceFive}}</td>
+      <td>{{priceFive_5}}</td>
       <td>
-        <button (click)="plus($event.target)" data-price="5">+</button>
+        <button (click)="plus($event.target)" data-price="5.5">+</button>
       </td>
     </tr>
   </table>
-
-
+  <br>
+  6/42, 6/49
+  <table class="table" style="max-width: 64%">
+    <tr>
+      <td>тройка</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="3.6">-</button>
+      </td>
+      <td class="align-center">{{priceThree_6}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="3.6">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td>четворка</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="4.6">-</button>
+      </td>
+      <td class="align-center">{{priceFour_6}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="4.6">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td>петица</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="5.6">-</button>
+      </td>
+      <td class="align-center">{{priceFive_6}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="5.6">+</button>
+      </td>
+    </tr>
+    <tr>
+      <td>шестица</td>
+      <td>=&nbsp;</td>
+      <td>
+        <button (click)="minus($event.target)" data-price="6.6">-</button>
+      </td>
+      <td>{{priceSix_6}}</td>
+      <td>
+        <button (click)="plus($event.target)" data-price="6.6">+</button>
+      </td>
+    </tr>
+  </table>
 </div>
 
+<div class="text-light" data-role="charm" data-position="left" id="info">
+  <p style="padding-top: 10px">
+    - Числата, които избирате се сортират автоматично<br>
+    във възходящ ред. Поредността има значение за<br>
+    съкратените системи и тук тя е винаги възходяща. <br>
+  </p>
+  <p>
+    - Не всички съкратени системи са включени в сайта.
+  </p>
+  <br>
+  <p >
+    <i>
+      Tip: Ако в режим 'Пълно комбиниране' изберете <br>
+      стандартния брой числа за съответната игра,  <br>
+      тогава реално няма да се приложи комбиниране. <br>
+      Тоест имаме най-обикновено (чисто) търсене.
+    </i>
+  </p>
+  <span class="charm-closer"></span>
+</div>
 
-<!--тройка =-->
-<!--<button (click)="minus($event.target)" data-price="3"-->
-<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
-<!--&nbsp;{{priceThree}}&nbsp;-->
-<!--<button (click)="plus($event.target)" data-price="3"-->
-<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->
-<!--<br>-->
-<!--четворка =-->
-<!--<button (click)="minus($event.target)" data-price="4"-->
-<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
-<!--&nbsp;{{priceFour}}&nbsp;-->
-<!--<button (click)="plus($event.target)" data-price="4"-->
-<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->
-<!--<br>-->
-<!--петица =-->
-<!--<button (click)="minus($event.target)" data-price="5"-->
-<!--class="button mini-button fg-white bg-grayLight mif-minus"></button>-->
-<!--&nbsp;{{priceFive}}&nbsp;-->
-<!--<button (click)="plus($event.target)" data-price="5"-->
-<!--class="button mini-button fg-white bg-grayLight mif-plus"></button>-->

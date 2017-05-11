@@ -1,23 +1,17 @@
-import {Injectable} from '@angular/core';
-
-@Injectable()
 export class CombinatoricsSixService {
-
-  constructor() {
-  }
 
   three(amountThree:number, userNumsLength:number) {
     var base = userNumsLength - 3;
     base = base * (base - 1) * (base - 2);
-    return amountThree * (base / this.factorial(3));
+    return amountThree * (base / 6);
 
   }
 
   four(amountFour:number, userNumsLength:number) {
     var three = function () {
-      var C1 = (4 * 3 * 2) / this.factorial(3);
+      var C1 = (4 * 3 * 2) / 6;
       var baseC2 = userNumsLength - 4;
-      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / this.factorial(3);
+      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / 6;
       return amountFour * C1 * C2;
     }();
 
@@ -34,14 +28,14 @@ export class CombinatoricsSixService {
 
   five(amountFive:number, userNumsLength:number) {
     var three = function () {
-      var C1 = (5 * 4 * 3) / this.factorial(3);
+      var C1 = (5 * 4 * 3) / 6;
       var baseC2 = userNumsLength - 5;
-      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / this.factorial(3);
+      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / 6;
       return amountFive * C1 * C2;
     }();
 
     var four = function () {
-      var C1 = (5 * 4 * 3 * 2) / this.factorial(4);
+      var C1 = (5 * 4 * 3 * 2) / 24;
       var baseC2 = userNumsLength - 5;
       var C2 = (baseC2 * (baseC2 - 1)) / 2;
       return amountFive * C1 * C2;
@@ -54,17 +48,16 @@ export class CombinatoricsSixService {
     }
   }
 
-
   six(amountSix:number, userNumsLength:number) {
     var three = function () {
-      var C1 = (6 * 5 * 4) / this.factorial(3);
+      var C1   = (6 * 5 * 4) / 6;
       var baseC2 = userNumsLength - 6;
-      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / this.factorial(3);
+      var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / 6;
       return amountSix * C1 * C2;
     }();
 
     var four = function () {
-      var C1 = (6 * 5 * 4 * 3) / this.factorial(4);
+      var C1 = (6 * 5 * 4 * 3) / 24;
       var baseC2 = userNumsLength - 6;
       var C2 = (baseC2 * (baseC2 - 1)) / 2;
       return amountSix * C1 * C2;
@@ -78,13 +71,14 @@ export class CombinatoricsSixService {
     }
   }
 
-  factorial(n) {
-    if (n == 0) {
-      return 1
-    } else {
-      return n * this.factorial(n - 1);
-    }
-  }
+  //  factorial(n) {
+  //   if (n == 0) {
+  //     return 1
+  //   } else {
+  //     return n * this.factorial(n - 1);
+  //   }
+  // }
+
 }
 
 

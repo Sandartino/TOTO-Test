@@ -24,17 +24,17 @@ export class InfoService {
     switch (year)
     {
       case '2014' :
-        return price * 104;
-  
+        return Math.round(price * 104);
+
       case '2015' :
-        return price * 105;
-  
+        return Math.round(price * 106);
+
       case '2016' :
-        return price * 103;
-  
+        return Math.round(price * 104);
+
       default : alert('Error: Година?');
     }
-  
+
   }
 
 }

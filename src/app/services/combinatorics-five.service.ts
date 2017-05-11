@@ -1,11 +1,5 @@
-import {Injectable} from '@angular/core';
-
-@Injectable()
 export class CombinatoricsFiveService {
-
-  constructor() {
-  }
-
+  
   three(amountThree:number, userNumsLength:number) {
     var base = userNumsLength - 3;
     base = base * (base - 1);
@@ -40,5 +34,5 @@ export class CombinatoricsFiveService {
       five: amountFive
     }
   }
-  
+
 }
