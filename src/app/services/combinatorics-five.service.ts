@@ -1,5 +1,5 @@
 export class CombinatoricsFiveService {
-  
+
   three(amountThree:number, userNumsLength:number) {
     var base = userNumsLength - 3;
     base = base * (base - 1);

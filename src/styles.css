@@ -1,5 +1,4 @@
 /*main color scheme #FFFCCA*/
-/*style="border-right: 1px solid #A89E00"*/
 body {
   background-color: #1D1D1D;
   color: #333000;
@@ -18,12 +17,35 @@ table td a {
   color: #4E487F !important;
 }
 
-select{
+select {
   background-color: #FFFFF8;
 }
 
 label {
   margin: 0 !important;
+}
+
+.system .toolbar button {
+  margin-bottom: 5px;
+}
+
+.fontSizeUp {
+  font-size: 110%;
+  color: #4E487F !important;
+}
+
+.equalLine {
+  display: inline-block;
+  width: 95px;
+  margin-left: 0;
+  background-color: #2B2B2B;
+}
+
+.rightTop {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  z-index: 1;
 }
 
 /*Overwrite Framework*/
@@ -36,7 +58,8 @@ label {
   border-bottom: 0;
   background-color: #DBD790;
 }
-.tabcontrol .tabs li:not(.active) a:hover{
+
+.tabcontrol .tabs li:not(.active) a:hover {
   background-color: #ECE89B;
 }
 
@@ -63,37 +86,15 @@ label {
   border-color: #2498d9;
 }
 
-.switch .check{
+.switch .check {
   background-color: #B0B69A;
 }
-.switch input:checked~.check{
+
+.switch input:checked ~ .check {
   background-color: #60a917;
 }
 
 /*End Overwrite*/
-
-.system .toolbar button {
-  margin-bottom: 5px;
-}
-
-.fontSizeUp {
-  font-size: 110%;
-  color: #4E487F !important;
-}
-
-.equalLine {
-  display: inline-block;
-  width: 95px;
-  margin-left: 0;
-  background-color: #2B2B2B;
-}
-
-.rightTop{
-  position: absolute;
-  right: 1px;
-  top:1px;
-  z-index: 1;
-}
 
 
 

@@ -8,7 +8,6 @@ import {ClearDirective}       from "../directives/clear.directive";
 @Component({
   selector: 't-t649',
   templateUrl: './t649.component.html',
-  styleUrls: ['./t649.component.css'],
   providers: [IterateShortService, IterateFullService, InfoService]
 })
 export class T649Component {
@@ -25,7 +24,7 @@ export class T649Component {
   priceForYear:number = 354;
   combinations:number = 4;
   selectedYear = '2016';
-  years = ['2016','2015','2014'];
+  years = ['2016', '2015', '2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;

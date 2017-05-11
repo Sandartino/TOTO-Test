@@ -1,14 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
-import {IterateShortService} from '../services/iterate-short.service';
+import {IterateShortService}  from '../services/iterate-short.service';
 import {IterateFullService}   from '../services/iterate-full.service';
-import {InfoService} from '../services/info.service'
-import {Http} from '@angular/http';
-import {ClearDirective} from "../directives/clear.directive";
+import {InfoService}          from '../services/info.service'
+import {Http}                 from '@angular/http';
+import {ClearDirective}       from "../directives/clear.directive";
 
 @Component({
   selector: 't-t535',
   templateUrl: './t535.component.html',
-  styleUrls: ['./t535.component.css'],
   providers: [IterateShortService, IterateFullService, InfoService]
 })
 export class T535Component {
@@ -25,7 +24,7 @@ export class T535Component {
   priceForYear:number = 468;
   combinations:number = 9;
   selectedYear:string = '2016';
-  years = ['2016','2015','2014'];
+  years = ['2016', '2015', '2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;
@@ -41,8 +40,8 @@ export class T535Component {
 
   iterate() {
     if (this.inShortCombining) {
-      if(this.currentCountSelect < this.numbersCountToSelect){
-        alert ('Избрали сте по-малко числа');
+      if (this.currentCountSelect < this.numbersCountToSelect) {
+        alert('Избрали сте по-малко числа');
         return;
       }
       this.iterateShortService.iterate(
@@ -55,8 +54,8 @@ export class T535Component {
       this.four = this.iterateShortService.four;
       this.five = this.iterateShortService.five;
     } else {
-      if(this.currentCountSelect < this.gameType){
-        alert ('Избрали сте по-малко числа');
+      if (this.currentCountSelect < this.gameType) {
+        alert('Избрали сте по-малко числа');
         return;
       }
       this.iterateFullService.iterate(5, this.userNums, this.drawingNums, this.selectedYear);

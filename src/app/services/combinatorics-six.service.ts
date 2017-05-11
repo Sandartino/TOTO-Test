@@ -50,7 +50,7 @@ export class CombinatoricsSixService {
 
   six(amountSix:number, userNumsLength:number) {
     var three = function () {
-      var C1   = (6 * 5 * 4) / 6;
+      var C1 = (6 * 5 * 4) / 6;
       var baseC2 = userNumsLength - 6;
       var C2 = (baseC2 * (baseC2 - 1) * (baseC2 - 2)) / 6;
       return amountSix * C1 * C2;

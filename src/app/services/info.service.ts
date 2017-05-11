@@ -20,9 +20,8 @@ export class InfoService {
     return result
   }
 
-  forYear(year:any, price:number){
-    switch (year)
-    {
+  forYear(year:any, price:number) {
+    switch (year) {
       case '2014' :
         return Math.round(price * 104);
 
@@ -32,7 +31,8 @@ export class InfoService {
       case '2016' :
         return Math.round(price * 104);
 
-      default : alert('Error: Година?');
+      default :
+        alert('Error: Година?');
     }
 
   }
