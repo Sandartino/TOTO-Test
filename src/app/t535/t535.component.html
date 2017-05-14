@@ -89,12 +89,12 @@
       </label>
     </div>
 
-    <div class="input-control select" style="width: 24%">
+    <div class="input-control select" style="width: 24%;margin-top: 13px">
       <select [(ngModel)]="selectedYear">
         <option value="{{year}}" *ngFor="let year of years">{{year}}</option>
       </select>
     </div>
-    <span>Година</span>
+    <span style="vertical-align: sub">Година</span>
 
     <p>Съкратена система номер:</p>
     <div [selectSystem]="selectSystem" (click)="onSystem()" class="system">
@@ -122,7 +122,7 @@
     <button (click)="clear();clearFullCombining(inShortCombining)" class="button primary">Изчисти</button>
   </div>
 
-  <div class="cell" style="margin-top: -5px">
+  <div class="cell result" style="margin-top: -5px">
 
     <result [three]="three" [four]="four" [five]="five" [gameType]="gameType" [priceForYear]="priceForYear"></result>
 

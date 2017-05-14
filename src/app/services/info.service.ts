@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http}       from '@angular/http';
 
 @Injectable()
 export class InfoService {
@@ -32,9 +32,8 @@ export class InfoService {
         return Math.round(price * 104);
 
       default :
-        alert('Error: Година?');
+        alert('Error: info.service.ts');
     }
-
   }
 
 }

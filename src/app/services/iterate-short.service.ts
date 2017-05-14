@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http}       from '@angular/http';
 
 @Injectable()
 export class IterateShortService {
@@ -36,15 +36,12 @@ export class IterateShortService {
     for (var p in drawingNums) {
       if (drawingNums.hasOwnProperty(p)) {
 
-
         for (var s in systemIndices) {
           if (systemIndices.hasOwnProperty(s)) {
-
 
             for (let i = 0; i < systemIndices[s].length; i++) {
               systemIndex = systemIndices[s][i] - 1;
               userNum = userNums[systemIndex];
-
 
               for (let k = 0; k < drawingNumsLength; k++) {
                 if (userNum == drawingNums[p][k]) {
@@ -54,7 +51,6 @@ export class IterateShortService {
                   currentSix++;
                   break;
                 }
-
               }
 
             }
@@ -91,7 +87,6 @@ export class IterateShortService {
           }
 
         }
-
 
       }
 

@@ -4,7 +4,6 @@ export class CombinatoricsSixService {
     var base = userNumsLength - 3;
     base = base * (base - 1) * (base - 2);
     return amountThree * (base / 6);
-
   }
 
   four(amountFour:number, userNumsLength:number) {
@@ -70,14 +69,6 @@ export class CombinatoricsSixService {
       six: amountSix
     }
   }
-
-  //  factorial(n) {
-  //   if (n == 0) {
-  //     return 1
-  //   } else {
-  //     return n * this.factorial(n - 1);
-  //   }
-  // }
 
 }
 

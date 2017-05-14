@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
 import {CombinatoricsFiveService} from "./combinatorics-five.service";
-import {CombinatoricsSixService} from "./combinatorics-six.service";
+import {CombinatoricsSixService}  from "./combinatorics-six.service";
+import {Injectable}               from '@angular/core';
 
 @Injectable()
 export class IterateFullService {
@@ -109,7 +109,6 @@ export class IterateFullService {
       }
     }
 
-// end iterate()
   }
 
   reset() {

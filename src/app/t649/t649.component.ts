@@ -92,6 +92,9 @@ export class T649Component {
   }
 
   onSystem() {
+    if (!this.inShortCombining) {
+      return
+    }
     this.numbersCountToSelect = this.infoService.get('642/9', this.selectSystem[0], 'selectNumbers');
     this.combinations = this.infoService.get('642/9', this.selectSystem[0], 'combinations');
     this.guaranty = this.infoService.guaranty('642/9', this.selectSystem[0], 'guaranty');

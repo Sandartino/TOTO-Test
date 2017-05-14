@@ -6,7 +6,6 @@ export class CombinatoricsFullService {
     var subtraction = userNums - gameNums;
     var subtractionF = this.factorial(subtraction);
     return n / (k * subtractionF);
-
   }
 
   factorial(n) {

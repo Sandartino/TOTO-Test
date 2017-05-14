@@ -17,16 +17,14 @@
     <p>
       <b class="fontSizeUp">{{sum}}</b> <span class="text-secondary">спечелени</span>
     </p>
-    <p>
       &#8211;
-    </p>
     <p>
       <b class="fontSizeUp">{{priceForYear}}</b> <span class="text-secondary">платени</span>
     </p>
     <hr class="equalLine">
-    <p>
+    <p style="margin-top: 5px">
       <span style="font-size: x-large"><b
-        [ngClass]="{'green':positiveResult,'red':negativeResult,'inherit':zeroResult}">{{result}}лв.</b></span>
+        [ngClass]="{'green':positiveResult,'red':negativeResult,'zero':zeroResult}">{{result}}лв.</b></span>
     </p>
   </div>
 </div>

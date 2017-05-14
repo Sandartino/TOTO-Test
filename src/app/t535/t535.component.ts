@@ -89,6 +89,9 @@ export class T535Component {
   }
 
   onSystem() {
+    if (!this.inShortCombining) {
+      return
+    }
     this.numbersCountToSelect = this.infoService.get('535', this.selectSystem[0], 'selectNumbers');
     this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
     this.guaranty = this.infoService.guaranty('535', this.selectSystem[0], 'guaranty');

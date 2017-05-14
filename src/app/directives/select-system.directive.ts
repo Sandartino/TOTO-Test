@@ -1,4 +1,4 @@
-import {Directive, HostListener, Input, ElementRef, Renderer2, ViewChild, HostBinding} from '@angular/core';
+import {Directive, HostListener, Input, ElementRef, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[selectSystem]'
@@ -42,14 +42,12 @@ export class SelectSystemDirective {
         if (!this.clickElements.length) {
           this.clickElements[0] = this.firstSystemElement;
         }
-
         this.clickElements[0].style.backgroundColor = this.defaultColor;
         this.renderer.setStyle(this.firstSystemElement, 'backgroundColor', this.clickColor);
         this.clickElements.shift();
       }
     }
   }
-
 
 }
 
