@@ -65,10 +65,12 @@
       class="fontSizeUp">{{userNums.length}}</b> от <b class="fontSizeUp">{{numbersCountToSelect}}</b></p>
     <p *ngIf="!inShortCombining">Брой числа: <b class="fontSizeUp">{{currentCountSelect}}</b> &nbsp; Необходими:
       <b class="fontSizeUp">6+</b></p>
-    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b> <a href="#"
-                                                                                    class="mif-question padding5"
-                                                                                    style="margin-bottom:4px;color: #2498d9"
-                                                                                    onclick="toggleMetroCharm('#guaranty-help')"></a>
+    <p *ngIf="inShortCombining">Гарантира <b class="fontSizeUp">{{guaranty}}</b>
+      <a href="#"
+         class="mif-question"
+         style="color: #2498d9;margin-bottom:4px;margin-left:3px;font-size: 1rem"
+         onclick="toggleMetroCharm('#guaranty-help')">
+      </a>
     </p>
     <p>Комбинации: <b class="fontSizeUp">{{combinations}}</b></p>
     <p>Цена: <b class="fontSizeUp">{{price}}лв.</b>

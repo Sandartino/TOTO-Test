@@ -70,9 +70,7 @@ export class IterateFullService {
         else if (currentSix !== 6) {
           currentSix = 0;
         }
-
       }
-
     }
 
     if (gameType === 5) {

@@ -7,7 +7,7 @@ import {DefaultPriceService} from '../services/default-price.service'
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  isVisible:boolean = false;
+  isVisible:boolean = true;
   priceThree_5:number = 3;
   priceFour_5:number = 50;
   priceFive_5:number = 10000;

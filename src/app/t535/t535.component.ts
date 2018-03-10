@@ -21,10 +21,10 @@ export class T535Component {
   selectSystem:string[] = ['1'];
   guaranty:string = '4/4';
   price:string = '4.50';
-  priceForYear:number = 468;
+  priceForYear:number = 0;
   combinations:number = 9;
-  selectedYear:string = '2016';
-  years = ['2016', '2015', '2014'];
+  selectedYear:string = '2017';
+  years = ['2017','2016', '2015', '2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;
@@ -104,7 +104,7 @@ export class T535Component {
     if (this.inShortCombining) {
       this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
       this.price = String((this.combinations * 0.50).toFixed(2));
-      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
+      this.priceForYear = this.infoService.forYear(this.selectedYear, 0)
     } else {
       this.price = '0';
       this.combinations = 0;

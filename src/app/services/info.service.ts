@@ -31,6 +31,9 @@ export class InfoService {
       case '2016' :
         return Math.round(price * 104);
 
+      case '2017' :
+        return Math.round(price * 104);
+
       default :
         alert('Error: info.service.ts');
     }

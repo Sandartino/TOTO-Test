@@ -83,13 +83,9 @@ export class IterateShortService {
             else if (currentSix !== 6) {
               currentSix = 0;
             }
-
           }
-
         }
-
       }
-
     }
 
     this.three = three;

@@ -21,10 +21,10 @@ export class T642Component {
   selectSystem:string[] = ['1'];
   guaranty:string = '3/3';
   price:string = '2.40';
-  priceForYear:number = 250;
+  priceForYear:number = 0;
   combinations:number = 4;
-  selectedYear = '2016';
-  years = ['2016', '2015', '2014'];
+  selectedYear = '2017';
+  years = ['2017', '2016', '2015', '2014'];
   three:number = 0;
   four:number = 0;
   five:number = 0;
