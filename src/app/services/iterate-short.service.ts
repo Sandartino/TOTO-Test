@@ -10,7 +10,7 @@ export class IterateShortService {
   six:number;
 
   constructor(private http:Http) {
-    http.get('./src/app/data/systems.json').subscribe(res => this.systemData = res.json());
+    http.get('../../assets/systems.json').subscribe(res => this.systemData = res.json());
   }
 
   iterate(gameType, userNums, selectedSystem, drawingNums) {

@@ -6,7 +6,7 @@ export class InfoService {
   systemData:Object;
 
   constructor(private http:Http) {
-    http.get('./src/app/data/systems.json').subscribe(res => this.systemData = res.json());
+    http.get('../../assets/systems.json').subscribe(res => this.systemData = res.json());
   }
 
   get(game:string, selectSystem:string, property:string) {

@@ -36,7 +36,7 @@ export class T649Component {
               private iterateFullService:IterateFullService,
               private infoService:InfoService,
               private http:Http) {
-    http.get('./src/app/data/drawing-649.json').subscribe(res => this.drawingNums = res.json());
+    http.get('../../assets/drawing-649.json').subscribe(res => this.drawingNums = res.json());
   }
 
   iterate() {
@@ -67,7 +67,9 @@ export class T649Component {
       this.six = this.iterateFullService.six;
       this.iterateFullService.reset()
     }
-
+    if (this.priceForYear === 0) {
+      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.85)
+    }
   }
 
   sortNumbers(a, b) {
@@ -107,11 +109,9 @@ export class T649Component {
     if (this.inShortCombining) {
       this.combinations = this.infoService.get('642/9', this.selectSystem[0], 'combinations');
       this.price = String((this.combinations * 0.85).toFixed(2));
-      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.85)
     } else {
       this.price = '0';
       this.combinations = 0;
-      this.priceForYear = 0;
     }
   }
 

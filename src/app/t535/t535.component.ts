@@ -1,9 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import {IterateShortService}  from '../services/iterate-short.service';
-import {IterateFullService}   from '../services/iterate-full.service';
-import {InfoService}          from '../services/info.service'
-import {Http}                 from '@angular/http';
-import {ClearDirective}       from "../directives/clear.directive";
+import {IterateShortService} from '../services/iterate-short.service';
+import {IterateFullService} from '../services/iterate-full.service';
+import {InfoService} from '../services/info.service'
+import {Http} from '@angular/http';
+import {ClearDirective} from "../directives/clear.directive";
 
 @Component({
   selector: 't-t535',
@@ -14,28 +14,28 @@ export class T535Component {
   gameType = 5;
   userNums = [];
   lastSelectNum;
-  drawingNums:Object;
-  numbersCountToSelect:number = 7;
-  currentCountSelect:number = 0;
-  inShortCombining:boolean = true;
-  selectSystem:string[] = ['1'];
-  guaranty:string = '4/4';
-  price:string = '4.50';
-  priceForYear:number = 0;
-  combinations:number = 9;
-  selectedYear:string = '2017';
-  years = ['2017','2016', '2015', '2014'];
-  three:number = 0;
-  four:number = 0;
-  five:number = 0;
+  drawingNums: Object;
+  numbersCountToSelect: number = 7;
+  currentCountSelect: number = 0;
+  inShortCombining: boolean = true;
+  selectSystem: string[] = ['1'];
+  guaranty: string = '4/4';
+  price: string = '4.50';
+  priceForYear: number = 0;
+  combinations: number = 9;
+  selectedYear: string = '2017';
+  years = ['2017', '2016', '2015', '2014'];
+  three: number = 0;
+  four: number = 0;
+  five: number = 0;
 
-  @ViewChild(ClearDirective) clearDirective:ClearDirective;
+  @ViewChild(ClearDirective) clearDirective: ClearDirective;
 
-  constructor(private iterateShortService:IterateShortService,
-              private iterateFullService:IterateFullService,
-              private infoService:InfoService,
-              private http:Http) {
-    http.get('./src/app/data/drawing-535.json').subscribe(res => this.drawingNums = res.json());
+  constructor(private iterateShortService: IterateShortService,
+              private iterateFullService: IterateFullService,
+              private infoService: InfoService,
+              private http: Http) {
+    http.get('../../assets/drawing-535.json').subscribe(res => this.drawingNums = res.json());
   }
 
   iterate() {
@@ -64,7 +64,9 @@ export class T535Component {
       this.five = this.iterateFullService.five;
       this.iterateFullService.reset()
     }
-
+    if (this.priceForYear === 0) {
+      this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
+    }
   }
 
   sortNumbers(a, b) {
@@ -104,11 +106,9 @@ export class T535Component {
     if (this.inShortCombining) {
       this.combinations = this.infoService.get('535', this.selectSystem[0], 'combinations');
       this.price = String((this.combinations * 0.50).toFixed(2));
-      this.priceForYear = this.infoService.forYear(this.selectedYear, 0)
     } else {
       this.price = '0';
       this.combinations = 0;
-      this.priceForYear = 0;
     }
   }
 
@@ -118,7 +118,7 @@ export class T535Component {
     this.price = String((this.combinations * 0.50).toFixed(2));
   }
 
-  onFullCombining(value:number) {
+  onFullCombining(value: number) {
     this.combinations = value;
     this.price = String(value * 0.50);
     this.priceForYear = this.infoService.forYear(this.selectedYear, this.combinations * 0.50)
@@ -133,7 +133,7 @@ export class T535Component {
     this.five = 0;
   }
 
-  clearFullCombining(inShortCombining:boolean) {
+  clearFullCombining(inShortCombining: boolean) {
     if (!inShortCombining) {
       this.combinations = 0;
       this.price = '0';
